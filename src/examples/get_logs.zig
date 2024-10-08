@@ -27,10 +27,10 @@ pub fn main() !void {
     var json_rpc_provider = try web3.JsonRpcProvider.init(allocator, try std.Uri.parse(rpc_endpoint));
     defer json_rpc_provider.deinit();
 
-    // Search in the past 10,000 blocks
+    // Search in the past 100,000 blocks
     const block = try json_rpc_provider.getBlockNumber();
     const from_block = web3.BlockTag{
-        .number = block - 10000,
+        .number = block - 100000,
     };
 
     // // Create a topic filter
